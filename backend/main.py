@@ -18,7 +18,8 @@ class Tasks(BaseModel):
 app = FastAPI()
 
 origins = [
-    "https://localhost:3000"
+    "https://localhost:5173",
+    "http://localhost:5173",
 ]
 
 #add origins to allowed origins (cors)
@@ -34,19 +35,10 @@ memory_db = {"tasks": []}
 next_id = 1 #counter for ids
 
 @app.get("/tasks", response_model=Tasks)
-def get_fruits():
+def get_tasks():
     return Tasks(tasks=memory_db["tasks"])
 
-#@app.get("/tasks/{task_name}/days_to_complete")
-#def get_days_to_complete(task_name: str):
-    #check if a task matches the name
-    for task in memory_db["tasks"]:
-        if task.name.lower() == task_name.lower():
-            return task.days_to_complete
-    
-    raise HTTPException(status_code=404, detail="Task name not found")
-
-@app.post("/tasks", response_model=Tasks)
+@app.post("/tasks", response_model=Task)
 def add_task(task: Task):
     global next_id
     task.id = next_id

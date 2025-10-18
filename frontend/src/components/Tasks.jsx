@@ -17,7 +17,6 @@ const TaskList = () => {
 
     const addTask = async (task) => {
         try {
-            console.log('hello');
             console.log(task);
             await api.post('/tasks', task);
             fetchTasks(); // refresh list display after 
@@ -25,6 +24,20 @@ const TaskList = () => {
             console.error("error adding task", error);
         }
     };
+
+    const deleteTask = async (task_id) => {
+        try {
+            console.log("deleting task:", task_id)
+            await api.delete(`/tasks/${task_id}`);
+            fetchTasks(); // refresh list display after
+        } catch (error) {
+            console.error("error deleting task", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchTasks();
+    }, []);
 
     return (
         <div>
@@ -37,6 +50,10 @@ const TaskList = () => {
                             <p className="desc">{task.desc}</p>
                             <p className="days">{task.days_to_complete} days</p>
                             <p className="author">set by {task.author}</p>
+                            <button
+                                onClick={() => deleteTask(task.id)}
+                                title='delete task'
+                            >delete task</button>
                         </div>
                     </li>
                 ))}

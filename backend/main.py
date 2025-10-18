@@ -4,6 +4,7 @@ from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
+from datetime import date
 
 class Task(BaseModel):
     id: int | None = None #automatically assign id
@@ -11,6 +12,7 @@ class Task(BaseModel):
     desc: str
     days_to_complete: int
     author: str
+    date_created: date | None = None
 
 class Tasks(BaseModel):
     tasks: List[Task]
@@ -43,7 +45,7 @@ def add_task(task: Task):
     global next_id
     task.id = next_id
     next_id += 1
-
+    task.date_created = date.today()
     memory_db["tasks"].append(task)
     return task
 
@@ -55,6 +57,19 @@ def delete_task(task_id: int):
             return deleted_task
         
     raise HTTPException(status_code=404, detail="Task id not found")
+
+@app.put("/tasks/update_days", response_model=List[Task])
+def update_task_days():
+    today = date.today()
+    updated_tasks = []
+
+    for task in memory_db["tasks"]:
+        days_passed = (today - task.date_created).days
+        remaining = task.days_to_complete - days_passed
+        task.days_to_complete = max(0, remaining)
+        updated_tasks.append(task)
+
+    return updated_tasks
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

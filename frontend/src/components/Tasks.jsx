@@ -5,6 +5,10 @@ import AddTaskForm from './AddTaskForm';
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
 
+    useEffect(() => {
+        updateDays().then(fetchTasks);
+    }, []);
+
     const fetchTasks = async () => {
         try {
             console.log('fetching tasks');
@@ -35,6 +39,16 @@ const TaskList = () => {
         }
     };
 
+    const updateDays = async () => {
+        try {
+            const response = await api.put("/tasks/update_days");
+            setTasks(response.data);
+            console.log("task days updated!");
+        } catch (error) {
+            console.error("error updating task days:", error);
+        }
+    };
+
     useEffect(() => {
         fetchTasks();
     }, []);
@@ -48,7 +62,7 @@ const TaskList = () => {
                         <div>
                             <p className="name">{task.name}</p>
                             <p className="desc">{task.desc}</p>
-                            <p className="days">{task.days_to_complete} days</p>
+                            <p className="days">{task.days_to_complete} day(s) left</p>
                             <p className="author">set by {task.author}</p>
                             <button
                                 onClick={() => deleteTask(task.id)}

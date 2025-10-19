@@ -9,7 +9,7 @@ body {
   background-color: #F2E7C9;
   color: #413C58;
   padding: 3px;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 li {
@@ -50,7 +50,7 @@ input {
   border: none;
   border-radius: 10px;
   color: #413C58;
-  font-size: 15px;
+  font-size: 12px;
   padding: 10px;
 }
 

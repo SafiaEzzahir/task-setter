@@ -35,20 +35,20 @@ const AddTaskForm = ({ addTask }) => {
                 type='text'
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
-                placeholder='um... details pls?'
+                placeholder='explain'
             />
             <input
                 type='number'
                 value={daysToComplete}
                 onChange={(e) => setDaysToComplete(e.target.value)}
-                placeholder='how long to i have (in days)'
+                placeholder='how long left (in days)'
                 min="1"
             />
             <input 
                 type="text" 
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
-                placeholder='who are you -_-'
+                placeholder='who are you 0_0'
             />
             <input
                 type="checkbox"

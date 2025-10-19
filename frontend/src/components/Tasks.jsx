@@ -45,7 +45,7 @@ const TaskList = () => {
             <ul>
                 {tasks?.map((task, index) => (
                     <li key={index}>
-                        <div>
+                        <div className="task">
                             <p className="name">{task.name}</p>
                             <p className="desc">{task.desc}</p>
                             <p className="days">{task.days_to_complete} day(s) left</p>

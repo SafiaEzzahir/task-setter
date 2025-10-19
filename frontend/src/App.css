@@ -48,7 +48,7 @@ input {
   color: #413C58;
   font-size: 12px;
   padding: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 input::placeholder {
@@ -57,7 +57,6 @@ input::placeholder {
 
 .check {
   background-color: #E7EFC5;
-  border-left: 10px;
 }
 
 .add_task {

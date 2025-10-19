@@ -51,6 +51,7 @@ input {
   border-radius: 10px;
   color: #413C58;
   font-size: 15px;
+  padding: 10px;
 }
 
 input::placeholder {
@@ -77,4 +78,8 @@ button {
 button:hover {
   border-color: #E7EFC5;
   color: #E7EFC5;
+}
+
+p {
+  padding: 10px;
 }

@@ -41,8 +41,8 @@ const TaskList = () => {
 
     return (
         <div>
-            <h2>safia's tasks</h2>
             <AddTaskForm addTask={addTask} />
+            <h2>safia's tasks</h2>
             <ul>
                 {tasks?.map((task, index) => (
                     <li key={index}>

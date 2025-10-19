@@ -17,7 +17,8 @@ li {
 }
 
 form {
-  padding: 5px;
+  display: inline-flex;
+  flex-flow: row;
 }
 
 .task{

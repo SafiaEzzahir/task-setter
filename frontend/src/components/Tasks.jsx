@@ -53,6 +53,7 @@ const TaskList = () => {
                             <button
                                 onClick={() => deleteTask(task.id)}
                                 title='delete task'
+                                className='delete_task'
                             >delete task</button>
                         </div>
                     </li>

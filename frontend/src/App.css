@@ -8,6 +8,7 @@
 body {
   background-color: #F2E7C9;
   color: #413C58;
+  padding: 3px;
 }
 
 li {
@@ -37,4 +38,20 @@ li {
 
 .name {
   font-weight: bold;
+}
+
+input {
+  background-color: #A3C4BC;
+}
+
+.check {
+  background-color: #E7EFC5;
+}
+
+.add_task {
+  background-color: #A3C4BC;
+}
+
+.delete_task {
+  background-color: #413C58;
 }

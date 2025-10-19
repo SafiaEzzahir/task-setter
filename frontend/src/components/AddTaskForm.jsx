@@ -52,12 +52,13 @@ const AddTaskForm = ({ addTask }) => {
             />
             <input
                 type="checkbox"
+                className='check'
                 value={anonymous}
                 onChange={(e) => setAnonymous(e.target.checked)}
                 name='anonymous'
             />
             <label htmlFor="">stay anonymous</label>
-            <button type="submit">add task</button>
+            <button type="submit" className='add_task'>add task</button>
         </form>
     );
 };

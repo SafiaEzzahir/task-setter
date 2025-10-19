@@ -49,6 +49,7 @@ app = FastAPI()
 origins = [
     "https://localhost:5173",
     "http://localhost:5173",
+    "https://safias-task-setter.onrender.com"
 ]
 
 #add origins to allowed origins (cors)

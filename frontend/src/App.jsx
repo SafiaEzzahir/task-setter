@@ -10,7 +10,6 @@ const App = () => {
       </header>
       <main>
         <TaskList />
-        <a href="mainpage.html">see all lists</a>
       </main>
     </div>
   );

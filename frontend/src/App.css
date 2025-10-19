@@ -16,11 +16,6 @@ li {
   list-style-type: none;
 }
 
-form {
-  display: inline-flex;
-  flex-flow: row;
-}
-
 .task{
   display: flex;
   align-items: center;
@@ -53,6 +48,7 @@ input {
   color: #413C58;
   font-size: 12px;
   padding: 10px;
+  margin-left: 10px;
 }
 
 input::placeholder {

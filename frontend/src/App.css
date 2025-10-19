@@ -57,6 +57,7 @@ input::placeholder {
 
 .check {
   background-color: #E7EFC5;
+  border-left: 10px;
 }
 
 .add_task {

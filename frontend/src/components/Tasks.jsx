@@ -42,6 +42,7 @@ const TaskList = () => {
     return (
         <div>
             <h2>safia's tasks</h2>
+            <AddTaskForm addTask={addTask} />
             <ul>
                 {tasks?.map((task, index) => (
                     <li key={index}>
@@ -59,7 +60,6 @@ const TaskList = () => {
                     </li>
                 ))}
             </ul>
-            <AddTaskForm addTask={addTask} />
         </div>
     );
 };

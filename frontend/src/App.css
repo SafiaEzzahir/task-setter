@@ -9,10 +9,15 @@ body {
   background-color: #F2E7C9;
   color: #413C58;
   padding: 3px;
+  font-size: 22px;
 }
 
 li {
   list-style-type: none;
+}
+
+form {
+  padding: 5px;
 }
 
 .task{
@@ -45,6 +50,11 @@ input {
   border: none;
   border-radius: 10px;
   color: #413C58;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: #F3E8CA;
 }
 
 .check {
@@ -62,4 +72,9 @@ input {
 button {
   border-radius: 10px;
   color: #F2E7C9;
+}
+
+button:hover {
+  border-color: #E7EFC5;
+  color: #E7EFC5;
 }

@@ -9,6 +9,9 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import declarative_base, sessionmaker
+import aiocron
+import httpx
+import asyncio
 
 DATABASE_URL = "sqlite:///./tasks.db"
 
@@ -98,6 +101,24 @@ def delete_task(task_id: int, db: SessionLocal = Depends(get_db)):
     db.delete(task)
     db.commit()
     return task
+
+# cron ping job
+
+BACKEND_URL = "https://task-setter.onrender.com/tasks"
+
+@aiocron.crontab('*/5 * * * *')
+async def self_ping():
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            response = await client.get(BACKEND_URL)
+            print(f"[PING] Health check: {response.status_code}")
+    except Exception as e:
+        print(f"[PING] Failed: {e}")
+
+@app.on_event("startup")
+async def startup_event():
+    await asyncio.sleep(1)
+    print("[CRON] Auto-ping job started!")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

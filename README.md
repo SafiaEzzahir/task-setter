@@ -9,6 +9,9 @@ what i tried to do better with this project was adding more fields to the api fo
 
 i did try to add authentication using jwt tokens, but i realised it was more complicated than i thought so it might have been easier to start over to integrate that feature. i also tried to call a date api to change the days left to do a task, but that got complicated when i switched to sqlite.
 
+UPDATE 25/10:
+i used aiocron to ping the backend every five minutes to make sure the server stays up and healthy.
+
 anyways, here are the links:
 
 frontend: https://safias-task-setter.onrender.com
